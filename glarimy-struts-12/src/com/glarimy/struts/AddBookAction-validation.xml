@@ -1,0 +1,25 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="book.isbn">
+		<field-validator type="int">
+			<param name="min">1</param>
+			<message key="error.isbn" />
+		</field-validator>
+	</field>
+	<field name="book.title">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key='error.title.empty'></message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">3</param>
+			<param name="maxLength">30</param>
+			<message key='error.title.length'>
+			</message>
+		</field-validator>
+		<field-validator type="space">
+			<message key='error.title.space' />
+		</field-validator>
+	</field>
+</validators>
