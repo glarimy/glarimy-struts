@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" 
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.custom.i18n.resources" value="glarimy" />
+	<package name="public" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="security"
+				class="com.glarimy.struts.interceptors.SecurityInterceptor" />
+			<interceptor-stack name="secured-stack">
+				<interceptor-ref name="security" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="secured-stack" />
+		<action name="glarimy.css">
+			<result>WEB-INF/glarimy.css</result>
+		</action>
+		<action name="index">
+			<result>WEB-INF/index.jsp</result>
+		</action>
+		<action name="login" class="com.glarimy.struts.actions.LoginAction"
+			method="login">
+			<result>WEB-INF/home.jsp</result>
+			<result name="input">WEB-INF/index.jsp</result>
+			<result name="login">WEB-INF/index.jsp</result>
+		</action>
+		<action name="logout" class="com.glarimy.struts.actions.LogoutAction"
+			method="logout">
+			<result>WEB-INF/index.jsp</result>
+		</action>
+		<action name="addForm">
+			<result>WEB-INF/addForm.jsp</result>
+		</action>
+		<action name="add" class="com.glarimy.struts.actions.AddEmployeeAction"
+			method="add">
+			<result>WEB-INF/home.jsp</result>
+			<result name="input">WEB-INF/addForm.jsp</result>
+			<result name="login">WEB-INF/index.jsp</result>
+		</action>
+		<action name="findForm">
+			<result>WEB-INF/findForm.jsp</result>
+		</action>
+		<action name="find" class="com.glarimy.struts.actions.FindEmployeeAction"
+			method="find">
+			<result>WEB-INF/employee.jsp</result>
+			<result name="input">WEB-INF/findForm.jsp</result>
+			<result name="login">WEB-INF/index.jsp</result>
+		</action>
+	</package>
+</struts>

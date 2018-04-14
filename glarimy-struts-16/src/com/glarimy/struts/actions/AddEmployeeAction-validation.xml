@@ -1,0 +1,17 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="employee.phoneNumber">
+		<field-validator type="long">
+			<param name="min">1</param>
+			<message key="error.phoneNumber" />
+		</field-validator>
+	</field>
+	<field name="employee.name">
+		<!-- <field-validator type="requiredstring"> <param name="trim">true</param> 
+			<message key='error.name.empty'></message> </field-validator> -->
+		<field-validator type="conversion">
+			<message key="error.name.invalid"></message>
+		</field-validator>
+	</field>
+</validators>

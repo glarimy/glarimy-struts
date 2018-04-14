@@ -1,0 +1,16 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="credential.uid">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key='error.uid.empty'></message>
+		</field-validator>
+	</field>
+	<field name="credential.pwd">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key='error.pwd.empty'></message>
+		</field-validator>
+	</field>
+</validators>
